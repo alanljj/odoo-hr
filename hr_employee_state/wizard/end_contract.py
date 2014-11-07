@@ -21,7 +21,7 @@
 
 from datetime import datetime
 
-import netsvc
+#from openerp import netsvc
 from openerp.osv import fields, osv
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
@@ -41,14 +41,14 @@ class employee_set_inactive(osv.TransientModel):
 
     def _get_contract(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
 
         return context.get('end_contract_id', False)
 
     def _get_employee(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
 
         contract_id = context.get('end_contract_id', False)

@@ -21,7 +21,7 @@
 
 from datetime import date
 from openerp.tools.translate import _
-from osv import osv, fields
+from openerp.osv import osv, fields
 
 
 class hr_holidays(osv.osv):

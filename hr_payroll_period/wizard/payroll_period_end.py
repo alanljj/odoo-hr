@@ -21,13 +21,13 @@
 
 import logging
 import math
-import netsvc
+from openerp import netsvc
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OEDATETIME_FORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OEDATE_FORMAT
 from openerp.tools.translate import _
-from osv import fields, osv
+from openerp.osv import fields, osv
 from pytz import timezone
 
 _logger = logging.getLogger(__name__)

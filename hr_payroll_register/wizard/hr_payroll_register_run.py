@@ -22,7 +22,7 @@
 from datetime import datetime, timedelta
 from pytz import timezone
 
-from osv import fields, osv
+from openerp.osv import fields, osv
 import logging
 _logger = logging.getLogger(__name__)
 

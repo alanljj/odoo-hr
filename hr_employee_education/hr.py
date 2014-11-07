@@ -21,7 +21,7 @@
 
 from datetime import datetime
 
-from osv import fields, osv
+from openerp.osv import fields, osv
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 
 EDUCATION_SELECTION = [

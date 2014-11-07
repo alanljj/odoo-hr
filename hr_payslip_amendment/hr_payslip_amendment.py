@@ -20,7 +20,7 @@
 #
 
 from openerp.tools.translate import _
-from osv import fields, osv
+from openerp.osv import fields, osv
 
 
 class hr_payslip_amendment(osv.osv):
@@ -31,10 +31,17 @@ class hr_payslip_amendment(osv.osv):
     _inherit = ['mail.thread']
 
     _columns = {
-        'name': fields.char('Description', size=128, required=True, readonly=True, states={'draft': [('readonly', False)]}),
-        'input_id': fields.many2one('hr.rule.input', 'Salary Rule Input', required=True, readonly=True, states={'draft': [('readonly', False)]}),
-        'employee_id': fields.many2one('hr.employee', 'Employee', required=True, readonly=True, states={'draft': [('readonly', False)]}),
-        'amount': fields.float('Amount', required=True, readonly=True, states={'draft': [('readonly', False)]}, help="The meaning of this field is dependant on the salary rule that uses it."),
+        'name': fields.char('Description', size=128, required=True, readonly=True,
+                            states={'draft': [('readonly', False)]}),
+        'input_id': fields.many2one('hr.rule.input', 'Salary Rule Input', required=True,
+                                    readonly=True,
+                                    states={'draft': [('readonly', False)]}),
+        'employee_id': fields.many2one('hr.employee', 'Employee', required=True, readonly=True,
+                                       states={'draft': [('readonly', False)]}),
+        'amount': fields.float('Amount', required=True, readonly=True,
+                               states={'draft': [('readonly', False)]},
+                               help="The meaning of this field is dependant"
+                                    " on the salary rule that uses it."),
         'state': fields.selection((('draft', 'Draft'),
                                    ('validate', 'Confirmed'),
                                    ('cancel', 'Cancelled'),
@@ -62,6 +69,7 @@ class hr_payslip_amendment(osv.osv):
         for psa in self.browse(cr, uid, ids, context=context):
             if psa.state in ['validate', 'done']:
                 raise osv.except_osv(_('Invalid Action'),
-                                     _('A Pay Slip Amendment that has been confirmed cannot be deleted!'))
+                                     _('A Pay Slip Amendment that has been'
+                                       ' confirmed cannot be deleted!'))
 
         return super(hr_payslip_amendment, self).unlink(cr, uid, ids, context=context)

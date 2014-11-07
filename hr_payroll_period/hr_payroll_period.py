@@ -20,15 +20,15 @@
 #
 
 import calendar
-import netsvc
+from openerp import netsvc
 import time
 from datetime import date, datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from openerp.tools.safe_eval import safe_eval as eval
 from openerp.tools.translate import _
-from osv import fields, osv
+from openerp.osv import fields, osv
 from pytz import common_timezones, timezone, utc
-from tools.translate import _
+from openerp.tools.translate import _
 import logging
 _logger = logging.getLogger(__name__)
 

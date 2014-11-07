@@ -21,13 +21,13 @@
 
 import time
 
-import netsvc
+from openerp import netsvc
 
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from pytz import timezone, utc
 
-from osv import fields, osv
+from openerp.osv import fields, osv
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
@@ -919,7 +919,7 @@ class hr_schedule_alert(osv.osv):
 
     def check_for_alerts(self, cr, uid, context=None):
         '''Check the schedule detail and attendance records for yesterday
-        against the scheduling/attendance alert rules. If any rules match create a 
+        against the scheduling/attendance alert rules. If any rules match create a
         record in the database.'''
 
         dept_obj = self.pool.get('hr.department')

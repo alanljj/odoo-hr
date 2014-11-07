@@ -23,7 +23,7 @@ import time
 from datetime import datetime
 from dateutil import relativedelta
 from openerp.tools.translate import _
-from osv import fields, osv
+from openerp.osv import fields, osv
 
 
 class hr_payroll_run(osv.osv):

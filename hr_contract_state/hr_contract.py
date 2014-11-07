@@ -24,7 +24,7 @@ import time
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-import netsvc
+from openerp import netsvc
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.osv import fields, osv
 

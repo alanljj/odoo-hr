@@ -19,7 +19,7 @@
 #
 #
 
-from osv import fields, osv
+from openerp.osv import fields, osv
 
 
 class hr_employee(osv.osv):
@@ -37,7 +37,8 @@ class hr_employee(osv.osv):
         'ec_houseno': fields.char('House No.', size=8),
         'ec_address': fields.char('Address 2', size=256),
         'ec_country_id': fields.many2one('res.country', 'Country'),
-        'ec_state_id': fields.many2one('res.country.state', 'State', domain="[('country_id','=',country_id)]"),
+        'ec_state_id': fields.many2one('res.country.state', 'State',
+                                       domain="[('country_id','=',country_id)]"),
     }
 
     def _get_country(self, cr, uid, context=None):

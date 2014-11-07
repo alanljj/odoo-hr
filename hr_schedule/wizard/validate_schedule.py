@@ -19,9 +19,9 @@
 #
 #
 
-import netsvc
+from openerp import netsvc
 
-from osv import fields, osv
+from openerp.osv import fields, osv
 
 import logging
 _logger = logging.getLogger(__name__)

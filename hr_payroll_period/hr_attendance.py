@@ -20,7 +20,7 @@
 #
 
 from openerp.tools.translate import _
-from osv import fields, osv
+from openerp.osv import fields, osv
 
 
 class hr_attendance(osv.osv):
