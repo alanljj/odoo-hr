@@ -33,12 +33,13 @@ class hr_accrual(osv.Model):
     _columns = {
         'name': fields.char('Name', size=128, required=True),
         'holiday_status_id': fields.many2one('hr.holidays.status', 'Leave'),
-        'line_ids': fields.one2many('hr.accrual.line', 'accrual_id', 'Accrual Lines', readonly=True),
+        'line_ids': fields.one2many('hr.accrual.line', 'accrual_id',
+                                    'Accrual Lines', readonly=True),
     }
 
     def get_balance(self, cr, uid, ids, employee_id, date=None, context=None):
 
-        if date == None:
+        if date is None:
             date = time.strftime(OE_DATEFORMAT)
 
         res = 0.0
